@@ -13,8 +13,29 @@ const  btn = document.querySelector('.btn');
  let timerId;//запис чтобы использ вн ф-ции
 i = 0// колич раз запущ ф-ций
 //ф-ция анимации
+function myAnimation() {
+    //el кот будет двиг
+    const elem = document.querySelector('.box');
+    //start position
+    let pos = 0;
+ //запуск плавной анимации
+const id = setInterval(frame, 10);
+
+    //func запуск с интервал
+    function frame() {
+        if (pos == 300) {//сравниваем с конечной позицией
+            clearInterval(id);
+        } else  {
+            pos++;
+            elem.style.top = pos + 'px';//смещение
+            elem.style.left = pos + 'px';
 
 
+        }
+    }
+}
+//start обработчик событ
+btn.addEventListener('click', myAnimation);
 /*
 btn.addEventListener('click', () => {
     // const timerId = setTimeout(logger, 2000);
